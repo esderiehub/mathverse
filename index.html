@@ -138,6 +138,83 @@
           <button class="detail-btn" onclick="openModal('riemann')">Detay <i class="fas fa-arrow-right"></i></button>
         </div>
       </div>
+      <!-- Bayes Teoremi -->
+<div class="formula-card">
+    <div class="formula-header">
+        <h3>Bayes Teoremi</h3>
+        <span class="formula-category">Olasılık</span>
+    </div>
+    <div class="formula">
+        $$P(A|B) = \frac{P(B|A) \cdot P(A)}{P(B)}$$
+    </div>
+    <p>Koşullu olasılığı tersine çevirir; yeni kanıtlara göre inanç güncelleme yöntemi.</p>
+    <button class="proof-btn" data-proof="bayes">İspatı Göster</button>
+</div>
+
+<!-- Fourier Serisi -->
+<div class="formula-card">
+    <div class="formula-header">
+        <h3>Fourier Serisi</h3>
+        <span class="formula-category">Analiz</span>
+    </div>
+    <div class="formula">
+        $$f(x) = \frac{a_0}{2} + \sum_{n=1}^{\infty}\left(a_n\cos\frac{n\pi x}{L} + b_n\sin\frac{n\pi x}{L}\right)$$
+    </div>
+    <p>Periyodik fonksiyonları sinüs ve kosinüs dalgalarına ayrıştırır.</p>
+    <button class="proof-btn" data-proof="fourier">İspatı Göster</button>
+</div>
+
+<!-- Fermat'ın Küçük Teoremi -->
+<div class="formula-card">
+    <div class="formula-header">
+        <h3>Fermat'ın Küçük Teoremi</h3>
+        <span class="formula-category">Sayı Teorisi</span>
+    </div>
+    <div class="formula">
+        $$a^p \equiv a \pmod{p}$$
+    </div>
+    <p>$p$ asal sayı ve $a$ herhangi bir tam sayı ise bu eşitlik her zaman doğrudur.</p>
+    <button class="proof-btn" data-proof="fermat_small">İspatı Göster</button>
+</div>
+
+<!-- Cauchy-Schwarz Eşitsizliği -->
+<div class="formula-card">
+    <div class="formula-header">
+        <h3>Cauchy-Schwarz Eşitsizliği</h3>
+        <span class="formula-category">Cebir</span>
+    </div>
+    <div class="formula">
+        $$\left(\sum_{i=1}^n a_i b_i\right)^2 \leq \left(\sum_{i=1}^n a_i^2\right)\left(\sum_{i=1}^n b_i^2\right)$$
+    </div>
+    <p>Lineer cebir ve analizin en önemli eşitsizliklerinden biri.</p>
+    <button class="proof-btn" data-proof="cauchy">İspatı Göster</button>
+</div>
+
+<!-- Normal Dağılım -->
+<div class="formula-card">
+    <div class="formula-header">
+        <h3>Normal Dağılım</h3>
+        <span class="formula-category">İstatistik</span>
+    </div>
+    <div class="formula">
+        $$f(x) = \frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{1}{2}\left(\frac{x-\mu}{\sigma}\right)^2}$$
+    </div>
+    <p>Çan eğrisi olarak da bilinir; doğadaki pek çok olayın dağılımını modeller.</p>
+    <button class="proof-btn" data-proof="normal">İspatı Göster</button>
+</div>
+
+<!-- Stirling Yaklaşımı -->
+<div class="formula-card">
+    <div class="formula-header">
+        <h3>Stirling Yaklaşımı</h3>
+        <span class="formula-category">Analiz</span>
+    </div>
+    <div class="formula">
+        $$n! \approx \sqrt{2\pi n}\left(\frac{n}{e}\right)^n$$
+    </div>
+    <p>Büyük sayıların faktöriyelini hızlıca hesaplamak için kullanılan güçlü bir yaklaşım.</p>
+    <button class="proof-btn" data-proof="stirling">İspatı Göster</button>
+</div>
 
     </div>
   </section>
