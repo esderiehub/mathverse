@@ -719,3 +719,206 @@ a { text-decoration: none; color: inherit; }
 
   .math-detail-header { flex-direction: column; text-align: center; }
 }
+/* ===== MODAL ===== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  backdrop-filter: blur(8px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.modal-box {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 2.5rem;
+  max-width: 620px;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+  position: relative;
+  transform: translateY(20px);
+  transition: transform 0.3s;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent) transparent;
+}
+
+.modal-overlay.active .modal-box {
+  transform: translateY(0);
+}
+
+.modal-close {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.2rem;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  color: var(--text2);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+}
+
+.modal-close:hover {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+
+/* ===== FORMULA CARD ===== */
+.formula-card {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  transition: transform 0.25s, border-color 0.25s;
+}
+
+.formula-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(99,102,241,0.4);
+}
+
+.formula-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+}
+
+.fc-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+/* ===== ABOUT ===== */
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.about-text h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  margin-bottom: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.about-text h3:first-child { margin-top: 0; }
+
+.about-text p {
+  color: var(--text2);
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+
+.about-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-top: 0.5rem;
+}
+
+.about-list li {
+  color: var(--text2);
+  font-size: 0.93rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.about-list li i {
+  color: var(--green);
+  font-size: 0.9rem;
+}
+
+.about-formula {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 3rem 2rem;
+  text-align: center;
+  font-size: 1.3rem;
+}
+
+/* ===== FOOTER ===== */
+.footer-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.footer-links {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.footer-links a {
+  color: var(--text2);
+  font-size: 0.88rem;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover { color: var(--accent); }
+
+/* ===== SEARCH BAR SECTION ===== */
+.search-bar-section {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+}
+
+.section-search {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: 50px;
+  padding: 0.6rem 1.5rem;
+  color: var(--text);
+  font-size: 0.9rem;
+  width: 320px;
+  outline: none;
+  font-family: 'Inter', sans-serif;
+  transition: border-color 0.2s;
+}
+
+.section-search:focus { border-color: var(--accent); }
+
+/* ===== TC TAG EK ===== */
+.tc-tag.trigonometri { background: rgba(251,113,133,0.15); color: #fb7185; }
+.tc-tag.istatistik   { background: rgba(52,211,153,0.15);  color: #34d399; }
+
+@media (max-width: 768px) {
+  .about-content { grid-template-columns: 1fr; gap: 2rem; }
+  .about-formula { font-size: 1rem; padding: 2rem 1rem; }
+}
