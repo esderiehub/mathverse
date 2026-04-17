@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MathVerse</title>
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="style/main.css"/>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-logo"><span class="logo-symbol">∑</span> MathVerse</div>
+    <ul class="nav-links">
+      <li><a href="#hero" class="active">Ana Sayfa</a></li>
+      <li><a href="#teoremler">Teoremler</a></li>
+      <li><a href="#formuller">Formüller</a></li>
+      <li><a href="#matematikçiler">Matematikçiler</a></li>
+      <li><a href="#hakkinda">Hakkında</a></li>
+    </ul>
+    <div class="nav-search">
+      <i class="fas fa-search"></i>
+      <input type="text" placeholder="Ara..." id="searchInput"/>
+    </div>
+    <button class="hamburger" id="hamburger"><i class="fas fa-bars"></i></button>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-bg-formula">∫ ∑ π Δ ∞ √ θ λ</div>
+    <div class="hero-content">
+      <h1>Matematiğin<br/><span class="gradient-text">Evrenine</span> Hoş Geldin</h1>
+      <p>Teoremler, formüller ve matematikçilerle dolu bir keşif yolculuğuna çık.</p>
+      <div class="hero-btns">
+        <a href="#teoremler" class="btn-primary">Teoremleri Keşfet</a>
+        <a href="#formuller" class="btn-secondary">Formüllere Bak</a>
+      </div>
+    </div>
+    <div class="hero-formula-showcase">
+      $$e^{i\pi} + 1 = 0$$
+    </div>
+  </section>
+
+  <!-- İSTATİSTİK -->
+  <section class="stats-bar">
+    <div class="stat-item"><span class="stat-num">12+</span><span class="stat-label">Teorem</span></div>
+    <div class="stat-item"><span class="stat-num">20+</span><span class="stat-label">Formül</span></div>
+    <div class="stat-item"><span class="stat-num">3</span><span class="stat-label">Matematikçi</span></div>
+    <div class="stat-item"><span class="stat-num">∞</span><span class="stat-label">Merak</span></div>
+  </section>
+
+  <!-- TEOREMLER -->
+  <section class="section" id="teoremler">
+    <h2 class="section-title">Teoremler</h2>
+    <div class="search-bar-section">
+      <input type="text" id="theoremSearch" placeholder="Teorem ara..." class="section-search"/>
+    </div>
+    <div class="filter-bar">
+      <button class="filter-btn active" data-filter="all">Tümü</button>
+      <button class="filter-btn" data-filter="geometri">Geometri</button>
+      <button class="filter-btn" data-filter="cebir">Cebir</button>
+      <button class="filter-btn" data-filter="analiz">Analiz</button>
+      <button class="filter-btn" data-filter="sayi">Sayı Teorisi</button>
+    </div>
+    <div class="cards-grid" id="theoremGrid">
+
+      <div class="theorem-card" data-category="geometri">
+        <div class="tc-tag geometri">Geometri</div>
+        <h3>Pisagor Teoremi</h3>
+        <p>Dik üçgende kenarlar arasındaki temel ilişki.</p>
+        <div class="tc-formula">$$a^2 + b^2 = c^2$$</div>
+        <div class="tc-footer">
+          <span class="tc-difficulty easy">Temel</span>
+          <button class="detail-btn" onclick="openModal('pisagor')">Detay <i class="fas fa-arrow-right"></i></button>
+        </div>
+      </div>
+
+      <div class="theorem-card" data-category="cebir">
+        <div class="tc-tag cebir">Cebir</div>
+        <h3>Fermat'ın Son Teoremi</h3>
+        <p>358 yıl boyunca çözülemeyen efsanevi teorem.</p>
+        <div class="tc-formula">$$a^n + b^n \neq c^n \quad (n>2)$$</div>
+        <div class="tc-footer">
+          <span class="tc-difficulty hard">İleri</span>
+          <button class="detail-btn" onclick="openModal('fermat')">Detay <i class="fas fa-arrow-right"></i></button>
+        </div>
+      </div>
+
+      <div class="theorem-card" data-category="analiz">
+        <div class="tc-tag analiz">Analiz</div>
+        <h3>Kalkülüsün Temel Teoremi</h3>
+        <p>Türev ve integral arasındaki köprü.</p>
+        <div class="tc-formula">$$\int_a^b f(x)dx = F(b)-F(a)$$</div>
+        <div class="tc-footer">
+          <span class="tc-difficulty medium">Orta</span>
+          <button class="detail-btn" onclick="openModal('kalkulus')">Detay <i class="fas fa-arrow-right"></i></button>
+        </div>
+      </div>
+
+      <div class="theorem-card" data-category="sayi">
+        <div class="tc-tag sayi">Sayı Teorisi</div>
+        <h3>Öklid'in Sonsuzluk Teoremi</h3>
+        <p>Asal sayıların sonsuz olduğunun ispatı.</p>
+        <div class="tc-formula">$$p_1 \cdot p_2 \cdots p_n + 1$$</div>
+        <div class="tc-footer">
+          <span class="tc-difficulty medium">Orta</span>
+          <button class="detail-btn" onclick="openModal('oklid')">Detay <i class="fas fa-arrow-right"></i></button>
+        </div>
+      </div>
+
+      <div class="theorem-card" data-category="analiz">
+        <div class="tc-tag analiz">Analiz</div>
+        <h3>Euler Kimliği</h3>
+        <p>Matematiğin en güzel denklemi olarak kabul edilir.</p>
+        <div class="tc-formula">$$e^{i\pi}+1=0$$</div>
+        <div class="tc-footer">
+          <span class="tc-difficulty medium">Orta</span>
+          <button class="detail-btn" onclick="openModal('euler')">Detay <i class="fas fa-arrow-right"></i></button>
+        </div>
+      </div>
+
+      <div class="theorem-card" data-category="geometri">
+        <div class="tc-tag geometri">Geometri</div>
+        <h3>Riemann Hipotezi</h3>
+        <p>Çözülmemiş en büyük matematik problemlerinden biri.</p>
+        <div class="tc-formula">$$\zeta(s)=\sum_{n=1}^{\infty}\frac{1}{n^s}$$</div>
+        <div class="tc-footer">
+          <span class="tc-difficulty hard">İleri</span>
+          <button class="detail-btn" onclick="openModal('riemann')">Detay <i class="fas fa-arrow-right"></i></button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FORMÜLLER -->
+  <section class="section dark-section" id="formuller">
+    <h2 class="section-title">Formüller</h2>
+    <div class="filter-bar">
+      <button class="filter-btn active" data-filter2="all">Tümü</button>
+      <button class="filter-btn" data-filter2="analiz">Analiz</button>
+      <button class="filter-btn" data-filter2="geometri">Geometri</button>
+      <button class="filter-btn" data-filter2="trigonometri">Trigonometri</button>
+      <button class="filter-btn" data-filter2="istatistik">İstatistik</button>
+    </div>
+    <div class="cards-grid" id="formulaGrid">
+
+      <div class="formula-card" data-cat2="analiz">
+        <div class="fc-header">
+          <div class="tc-tag analiz">Analiz</div>
+          <button class="copy-btn" onclick="copyFormula(this, '\\\\frac{d}{dx}x^n = nx^{n-1}')"><i class="fas fa-copy"></i> Kopyala</button>
+        </div>
+        <h3>Türev Kural (Üs)</h3>
+        <div class="tc-formula">$$\frac{d}{dx}x^n = nx^{n-1}$$</div>
+      </div>
+
+      <div class="formula-card" data-cat2="analiz">
+        <div class="fc-header">
+          <div class="tc-tag analiz">Analiz</div>
+          <button class="copy-btn" onclick="copyFormula(this, '\\\\int x^n dx = \\\\frac{x^{n+1}}{n+1}+C')"><i class="fas fa-copy"></i> Kopyala</button>
+        </div>
+        <h3>İntegral (Üs Kuralı)</h3>
+        <div class="tc-formula">$$\int x^n dx = \frac{x^{n+1}}{n+1}+C$$</div>
+      </div>
+
+      <div class="formula-card" data-cat2="geometri">
+        <div class="fc-header">
+          <div class="tc-tag geometri">Geometri</div>
+          <button class="copy-btn" onclick="copyFormula(this, 'A = \\\\pi r^2')"><i class="fas fa-copy"></i> Kopyala</button>
+        </div>
+        <h3>Daire Alanı</h3>
+        <div class="tc-formula">$$A = \pi r^2$$</div>
+      </div>
+
+      <div class="formula-card" data-cat2="trigonometri">
+        <div class="fc-header">
+          <div class="tc-tag trigonometri">Trigonometri</div>
+          <button class="copy-btn" onclick="copyFormula(this, '\\\\sin^2\\\\theta + \\\\cos^2\\\\theta = 1')"><i class="fas fa-copy"></i> Kopyala</button>
+        </div>
+        <h3>Pisagor Trigonometri</h3>
+        <div class="tc-formula">$$\sin^2\theta + \cos^2\theta = 1$$</div>
+      </div>
+
+      <div class="formula-card" data-cat2="istatistik">
+        <div class="fc-header">
+          <div class="tc-tag istatistik">İstatistik</div>
+          <button class="copy-btn" onclick="copyFormula(this, '\\\\sigma = \\\\sqrt{\\\\frac{\\\\sum(x-\\\\mu)^2}{N}}')"><i class="fas fa-copy"></i> Kopyala</button>
+        </div>
+        <h3>Standart Sapma</h3>
+        <div class="tc-formula">$$\sigma = \sqrt{\frac{\sum(x-\mu)^2}{N}}$$</div>
+      </div>
+
+      <div class="formula-card" data-cat2="analiz">
+        <div class="fc-header">
+          <div class="tc-tag analiz">Analiz</div>
+          <button class="copy-btn" onclick="copyFormula(this, 'e^{ix} = \\\\cos x + i\\\\sin x')"><i class="fas fa-copy"></i> Kopyala</button>
+        </div>
+        <h3>Euler Formülü</h3>
+        <div class="tc-formula">$$e^{ix} = \cos x + i\sin x$$</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MATEMATİKÇİLER -->
+  <section class="section" id="matematikçiler">
+    <h2 class="section-title">Matematikçiler</h2>
+    <div class="math-grid">
+
+      <div class="math-card" onclick="openMathModal('euler')">
+        <div class="math-avatar">L</div>
+        <h3>Leonhard Euler</h3>
+        <p>1707 – 1783</p>
+        <span class="math-tag">Analiz · Grafik Teorisi</span>
+      </div>
+
+      <div class="math-card" onclick="openMathModal('gauss')">
+        <div class="math-avatar">G</div>
+        <h3>Carl Friedrich Gauss</h3>
+        <p>1777 – 1855</p>
+        <span class="math-tag">Sayı Teorisi · İstatistik</span>
+      </div>
+
+      <div class="math-card" onclick="openMathModal('riemann')">
+        <div class="math-avatar">R</div>
+        <h3>Bernhard Riemann</h3>
+        <p>1826 – 1866</p>
+        <span class="math-tag">Geometri · Analiz</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- HAKKINDA -->
+  <section class="section dark-section" id="hakkinda">
+    <h2 class="section-title">Hakkında</h2>
+    <div class="about-content">
+      <div class="about-text">
+        <h3>MathVerse Nedir?</h3>
+        <p>MathVerse, matematiği sevenlerin teoremler, formüller ve büyük matematikçilerle buluştuğu bir bilgi platformudur. Amacımız matematiği herkes için erişilebilir ve ilgi çekici kılmaktır.</p>
+        <h3>Neler Bulabilirsin?</h3>
+        <ul class="about-list">
+          <li><i class="fas fa-check-circle"></i> Temel ve ileri düzey teoremler</li>
+          <li><i class="fas fa-check-circle"></i> Kopyalanabilir matematik formülleri</li>
+          <li><i class="fas fa-check-circle"></i> Ünlü matematikçilerin biyografileri</li>
+          <li><i class="fas fa-check-circle"></i> LaTeX formatında formüller</li>
+        </ul>
+      </div>
+      <div class="about-formula">
+        $$\sum_{n=1}^{\infty} \frac{1}{n^2} = \frac{\pi^2}{6}$$
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo"><span class="logo-symbol">∑</span> MathVerse</div>
+      <p>Demir ESER ve Emel ŞENER Tarafından Topluluk İçin Hazırlanmıştır.</p>
+      <div class="footer-links">
+        <a href="#hero">Ana Sayfa</a>
+        <a href="#teoremler">Teoremler</a>
+        <a href="#formuller">Formüller</a>
+        <a href="#hakkinda">Hakkında</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- TEOREM MODAL -->
+  <div class="modal-overlay" id="modalOverlay" onclick="closeModal()">
+    <div class="modal-box" onclick="event.stopPropagation()">
+      <button class="modal-close" onclick="closeModal()"><i class="fas fa-times"></i></button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
