@@ -247,3 +247,33 @@ function openMathModal(key) {
   document.getElementById('modalOverlay').classList.add('active');
   if (window.MathJax) MathJax.typesetPromise();
 }
+// Arama kutusu
+const searchInput = document.querySelector('.nav-search input');
+if (searchInput) {
+  searchInput.addEventListener('input', function () {
+    const query = this.value.toLowerCase().trim();
+    const cards = document.querySelectorAll('.theorem-card');
+    
+    cards.forEach(card => {
+      const title = card.querySelector('h3')?.textContent.toLowerCase() || '';
+      const desc  = card.querySelector('p')?.textContent.toLowerCase() || '';
+      
+      if (title.includes(query) || desc.includes(query)) {
+        card.style.display = 'flex';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  });
+}
+
+// Detay butonları
+document.querySelectorAll('.tc-arrow, .theorem-card').forEach(el => {
+  el.addEventListener('click', function () {
+    const card = this.closest('.theorem-card');
+    const id   = card?.dataset.id;
+    if (id) {
+      window.location.href = `detay.html?id=${id}`;
+    }
+  });
+});
